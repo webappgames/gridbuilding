@@ -8,6 +8,7 @@ module.exports = {
         path: __dirname + "/dist/"
     },
 
+    devtool: "source-map",
 
     resolve: {
         // Add '.ts' and '.tsx' as a resolvable extension.
