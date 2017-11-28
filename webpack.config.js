@@ -5,7 +5,10 @@ module.exports = {
     },
     output: {
         filename: 'gridbuilding.js',
-        path: __dirname + "/dist/"
+        path: __dirname + "/dist/",
+
+        libraryTarget: "var",
+        library: "Foo"
     },
 
     devtool: "source-map",
@@ -20,4 +23,19 @@ module.exports = {
             { test: /\.tsx?$/, loader: "ts-loader" }
         ]
     }
+
+
+
+    /*
+     plugins: [
+            new webpack.optimize.UglifyJsPlugin({
+                compress: {
+                    warnings: false,
+                },
+                output: {
+                    comments: false,
+                },
+            }),
+        ]
+    */
 }

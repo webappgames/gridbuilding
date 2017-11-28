@@ -6,9 +6,10 @@ import Wall from '../Grid3Brick';
 import Brick from '../Brick';
 
 interface IGridSize {
-    x: number[],
-    y: number[],
-    z: number[]
+    [key: string]: number[];
+    x: number[];
+    y: number[];
+    z: number[];
 }
 
 export default class Building extends Grid3<string> {
