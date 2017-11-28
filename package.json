@@ -1,0 +1,22 @@
+{
+    "name": "gridbuilding",
+    "version": "0.0.1",
+    "description": "Generate 3D buildings from ASCII string.",
+    "main": "index.js",
+    "scripts": {
+        "test": "dist/index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/hejny/gridbuilding.git"
+    },
+    "keywords": [
+        "ascii"
+    ],
+    "author": "Pavol Hejný",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/hejny/gridbuilding/issues"
+    },
+    "homepage": "https://github.com/hejny/gridbuilding#readme"
+}
