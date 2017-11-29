@@ -7,8 +7,8 @@ module.exports = {
         filename: 'gridbuilding.js',
         path: __dirname + "/dist/",
 
-        libraryTarget: "var",
-        library: "Foo"
+        libraryTarget: "commonjs",
+        library: "GridBuilding"
     },
 
     devtool: "source-map",

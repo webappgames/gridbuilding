@@ -2,10 +2,12 @@
     "name": "gridbuilding",
     "version": "0.0.1",
     "description": "Generate 3D buildings from ASCII string.",
-    "main": "index.js",
+    "main": "dist/gridbuilding.js",
+    "types": "dist/src/typings/index.d.js",
     "scripts": {
-        "test": "dist/index.js"
+        "test": "test/index.js"
     },
+
     "repository": {
         "type": "git",
         "url": "git+https://github.com/hejny/gridbuilding.git"
