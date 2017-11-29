@@ -1,6 +1,6 @@
 {
     "name": "gridbuilding",
-    "version": "0.0.1",
+    "version": "0.0.3",
     "description": "Generate 3D buildings from ASCII string.",
     "main": "dist/gridbuilding.js",
     "types": "dist/src/typings/index.d.js",
@@ -21,8 +21,7 @@
         "url": "https://github.com/hejny/gridbuilding/issues"
     },
     "homepage": "https://github.com/hejny/gridbuilding#readme",
-    "dependencies": {
-        "awesome-typescript-loader": "^3.4.0",
+    "devDependencies": {
         "ts-loader": "^3.1.1",
         "typescript": "^2.6.2"
     }
