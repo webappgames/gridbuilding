@@ -8,7 +8,7 @@ module.exports = {
         path: __dirname + "/dist/",
 
         libraryTarget: "commonjs",
-        library: "GridBuilding"
+        //library: "GridBuilding"
     },
 
     devtool: "source-map",
