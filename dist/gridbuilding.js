@@ -467,24 +467,6 @@ exports["GridBuilding"] =
 	+:::+:::+
 	`;
 	FLOOR4;
-	/*
-	const FLOOR3 = `
-	+
-	             
-	             
-	             
-	             
-	
-	-------------
-	|           |
-	|           |
-	|           |
-	|           |
-	|           |
-	|           |
-	|           |
-	-------------
-	`;*/
 	const BUILDING1 = fromFloorStrings_1.default([
 	    FLOOR1,
 	    FLOOR2,
@@ -492,7 +474,6 @@ exports["GridBuilding"] =
 	    FLOOR3,
 	]);
 	exports.BUILDING1 = BUILDING1;
-	//█
 
 
 /***/ },

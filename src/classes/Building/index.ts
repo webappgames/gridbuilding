@@ -5,7 +5,7 @@ import Grid3 from '../Grid3';
 import Wall from '../Grid3Brick';
 import Brick from '../Brick';
 
-interface IGridSize {
+export interface IGridSize {
     [key: string]: number[];
     x: number[];
     y: number[];

@@ -72,24 +72,6 @@ const FLOOR4 = `
 FLOOR4;
 
 
-/*
-const FLOOR3 = `
-+            
-             
-             
-             
-             
-
--------------
-|           |
-|           |
-|           |
-|           |
-|           |
-|           |
-|           |
--------------
-`;*/
 
 
 
@@ -106,5 +88,3 @@ const BUILDING1 = fromFloorStrings([
 
 
 export {BUILDING1};
-
-//█
