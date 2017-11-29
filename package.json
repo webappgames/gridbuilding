@@ -1,6 +1,6 @@
 {
     "name": "gridbuilding",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "Generate 3D buildings from ASCII string.",
     "main": "dist/gridbuilding.js",
     "types": "dist/src/typings/index.d.js",
