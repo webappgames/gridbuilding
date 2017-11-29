@@ -54,8 +54,6 @@ exports["GridBuilding"] =
 	exports.Grid3 = Grid3_1.default;
 	const Grid3Brick_1 = __webpack_require__(5);
 	exports.Wall = Grid3Brick_1.default;
-	const samples = __webpack_require__(7);
-	exports.samples = samples;
 
 
 /***/ },
@@ -69,6 +67,7 @@ exports["GridBuilding"] =
 	const Grid3_1 = __webpack_require__(4);
 	const Grid3Brick_1 = __webpack_require__(5);
 	const Brick_1 = __webpack_require__(6);
+	const fromFloorStrings_1 = __webpack_require__(7);
 	class Building extends Grid3_1.default {
 	    constructor(grid, size, center) {
 	        super(grid);
@@ -123,6 +122,10 @@ exports["GridBuilding"] =
 	            output += '\n\n\n';
 	        });
 	        return output;
+	    }
+	    //todo maybe better
+	    static fromFloorStrings(buildingString) {
+	        return fromFloorStrings_1.default(buildingString);
 	    }
 	}
 	exports.default = Building;
@@ -405,84 +408,7 @@ exports["GridBuilding"] =
 
 	"use strict";
 	Object.defineProperty(exports, "__esModule", { value: true });
-	const fromFloorStrings_1 = __webpack_require__(8);
-	const FLOOR1 = `
-	+:::+:::+:::+:::+:::+:::+::::::::
-	::::::::::::::::::::::::::::::::|
-	+:::+:::+:::+:::+:::+:::+::::::::
-	:::::        
-	::::+        
-	:::::        
-	+:::+:::+:::+
-	:::::::::::::
-	+:::+:::+:::+
-	:::::::::::::
-	+:::+:::+:::+
-	:::::        
-	:::::        
-	:::::       
-	+:::+        
-	`;
-	const FLOOR2 = `
-	|-------------------------------|
-	|:::::::::::::::::::::::::::::::|
-	|:::|---------------------------|
-	|:::|        
-	|:::|        
-	|:::|        
-	|:::|--------
-	|:::::::::::|
-	|:::+:::+:::|
-	|:::::::::::|
-	|:::|--------
-	|:::|        
-	:::::        
-	:::::       
-	-----        
-	`;
-	const FLOOR3 = `
-	:        
-	         
-	         
-	         
-	         
-	         
-	---------
-	|:::::::|
-	|:::::::|
-	|:::::::| 
-	--------- 
-	`;
-	const FLOOR4 = `
-	:        
-	         
-	         
-	         
-	         
-	         
-	+:::+:::+
-	:::::::::
-	+:::+:::+
-	:::::::::
-	+:::+:::+
-	`;
-	FLOOR4;
-	const BUILDING1 = fromFloorStrings_1.default([
-	    FLOOR1,
-	    FLOOR2,
-	    FLOOR2,
-	    FLOOR3,
-	]);
-	exports.BUILDING1 = BUILDING1;
-
-
-/***/ },
-/* 8 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	Object.defineProperty(exports, "__esModule", { value: true });
-	const Vector2_1 = __webpack_require__(9);
+	const Vector2_1 = __webpack_require__(8);
 	const index_1 = __webpack_require__(1);
 	const config_1 = __webpack_require__(2);
 	function createPlateString(floorString) {
@@ -540,7 +466,7 @@ exports["GridBuilding"] =
 
 
 /***/ },
-/* 9 */
+/* 8 */
 /***/ function(module, exports) {
 
 	"use strict";

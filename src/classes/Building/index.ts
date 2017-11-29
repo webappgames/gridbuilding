@@ -4,9 +4,11 @@ import Vector3 from '../Vector3';
 import Grid3 from '../Grid3';
 import Wall from '../Grid3Brick';
 import Brick from '../Brick';
+import fromFloorStrings from './fromFloorStrings';
 
 export interface IGridSize {
     [key: string]: number[];
+
     x: number[];
     y: number[];
     z: number[];
@@ -46,7 +48,7 @@ export default class Building extends Grid3<string> {
         if (gridCellPosition % 2 === 1) {
             position += this.size[axis][0];
         }
-        if(axis==='y'){
+        if (axis === 'y') {
             position = -position;//todo max position
         }
         return position;
@@ -97,5 +99,10 @@ export default class Building extends Grid3<string> {
         });
 
         return output;
+    }
+
+    //todo maybe better
+    static fromFloorStrings(buildingString: string[]): Building {
+        return fromFloorStrings(buildingString);
     }
 }
