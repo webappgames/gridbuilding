@@ -51,8 +51,12 @@
 	//import ExtendedMaze from './src/classes/Maze/ExtendedMaze';
 	const Grid3_1 = __webpack_require__(4);
 	exports.Grid3 = Grid3_1.default;
-	const Grid3Brick_1 = __webpack_require__(5);
-	exports.Wall = Grid3Brick_1.default;
+	const Wall_1 = __webpack_require__(5);
+	exports.Wall = Wall_1.default;
+	const Vector2_1 = __webpack_require__(8);
+	exports.Vector2 = Vector2_1.default;
+	const Vector3_1 = __webpack_require__(3);
+	exports.Vector3 = Vector3_1.default;
 
 
 /***/ },
@@ -64,7 +68,7 @@
 	const config_1 = __webpack_require__(2);
 	const Vector3_1 = __webpack_require__(3);
 	const Grid3_1 = __webpack_require__(4);
-	const Grid3Brick_1 = __webpack_require__(5);
+	const Wall_1 = __webpack_require__(5);
 	const Brick_1 = __webpack_require__(6);
 	const fromFloorStrings_1 = __webpack_require__(7);
 	class Building extends Grid3_1.default {
@@ -81,10 +85,10 @@
 	            const walls = [];
 	            this.getBooleanGrid(charConfig.id).iterate((val, pos) => {
 	                if (val) {
-	                    walls.push(new Grid3Brick_1.default(pos, pos));
+	                    walls.push(new Wall_1.default(pos, pos));
 	                }
 	            });
-	            const joinedWalls = Grid3Brick_1.default.joinWalls(walls);
+	            const joinedWalls = Wall_1.default.joinWalls(walls);
 	            wallsMixed = wallsMixed.concat(joinedWalls);
 	        });
 	        return wallsMixed;

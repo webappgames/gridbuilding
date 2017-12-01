@@ -2,7 +2,7 @@ import {CHARS} from './config';
 import Vector2 from '../Vector2';
 import Vector3 from '../Vector3';
 import Grid3 from '../Grid3';
-import Wall from '../Grid3Brick';
+import Wall from '../Wall';
 import Brick from '../Brick';
 import fromFloorStrings from './fromFloorStrings';
 

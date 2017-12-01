@@ -1,6 +1,6 @@
 import Vector2 from '../Vector2';
 import Grid3 from '../Grid3';
-import Wall from '../Grid3Brick';
+import Wall from '../Wall';
 import Brick from '../Brick';
 export interface IGridSize {
     [key: string]: number[];
