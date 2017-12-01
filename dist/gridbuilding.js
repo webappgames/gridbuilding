@@ -479,6 +479,9 @@
 	        this.x = x;
 	        this.y = y;
 	    }
+	    static Zero() {
+	        return new Vector2(0, 0);
+	    }
 	    add(vector3) {
 	        return new Vector2(this.x + vector3.x, this.y + vector3.y);
 	    }
@@ -487,6 +490,10 @@
 	    }
 	    scale(scale) {
 	        return new Vector2(this.x * scale, this.y * scale);
+	    }
+	    length(vector2 = Vector2.Zero()) {
+	        return Math.sqrt(Math.pow(this.x - vector2.x, 2) +
+	            Math.pow(this.y - vector2.y, 2));
 	    }
 	    toArray() {
 	        return [this.x, this.y];
