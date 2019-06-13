@@ -3,26 +3,25 @@
 export const CHARS = [
     {
         id: 'NONE',
-        chars: [' ', '   ',':', ':::']
+        chars: [' ', '   ', ':', ':::'],
     },
     {
         id: 'PILLAR',
-        chars: ['+']
+        chars: ['+'],
     },
     {
         id: 'VERTICAL',
-        chars: ['|']
+        chars: ['|'],
     },
     {
         id: 'HORIZONTAL',
-        chars: ['-', '---']
+        chars: ['-', '---'],
     },
     {
         id: 'PLATE',
-        chars: ['#', '###']
-    }
+        chars: ['#', '###'],
+    },
 ];
-
 
 /*export const CHARS = [
     {

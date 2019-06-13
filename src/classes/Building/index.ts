@@ -1,4 +1,4 @@
-import {CHARS} from './config';
+import { CHARS } from './config';
 import Vector2 from '../Vector2';
 import Vector3 from '../Vector3';
 import Grid3 from '../Grid3';
@@ -15,30 +15,23 @@ export interface IGridSize {
 }
 
 export default class Building extends Grid3<string> {
-
-    constructor(grid: string[][][],
-                public size: IGridSize,
-                public center: Vector2) {
+    constructor(grid: string[][][], public size: IGridSize, public center: Vector2) {
         super(grid);
     }
 
-
     getWalls(): Wall[] {
-
         let wallsMixed: Wall[] = [];
 
-        CHARS
-            .filter((charConfig) => charConfig.id !== 'NONE')
-            .forEach((charConfig) => {
-                const walls: Wall[] = [];
-                this.getBooleanGrid(charConfig.id).iterate((val, pos) => {
-                    if (val) {
-                        walls.push(new Wall(pos, pos));
-                    }
-                });
-                const joinedWalls = Wall.joinWalls(walls);
-                wallsMixed = wallsMixed.concat(joinedWalls);
+        CHARS.filter((charConfig) => charConfig.id !== 'NONE').forEach((charConfig) => {
+            const walls: Wall[] = [];
+            this.getBooleanGrid(charConfig.id).iterate((val, pos) => {
+                if (val) {
+                    walls.push(new Wall(pos, pos));
+                }
             });
+            const joinedWalls = Wall.joinWalls(walls);
+            wallsMixed = wallsMixed.concat(joinedWalls);
+        });
 
         return wallsMixed;
     }
@@ -49,54 +42,56 @@ export default class Building extends Grid3<string> {
             position += this.size[axis][0];
         }
         if (axis === 'y') {
-            position = -position;//todo max position
+            position = -position; //todo max position
         }
         return position;
     }
 
     getBricks(): Brick[] {
-
         const center = new Vector3(
             //todo maybe between
             this.positionOnGrid('x', this.center.x),
             this.positionOnGrid('y', this.center.y),
-            0
-        )
+            0,
+        );
 
         const bricks: Brick[] = [];
         this.getWalls().forEach((wall) => {
-            bricks.push(new Brick(
-                new Vector3(
-                    this.positionOnGrid('x', wall.from.x),
-                    this.positionOnGrid('y', wall.from.y),
-                    this.positionOnGrid('z', wall.from.z),
-                ).subtract(center),
-                new Vector3(
-                    this.positionOnGrid('x', wall.to.x + 1),
-                    this.positionOnGrid('y', wall.to.y + 1),
-                    this.positionOnGrid('z', wall.to.z + 1),
-                ).subtract(center)
-            ));
+            bricks.push(
+                new Brick(
+                    new Vector3(
+                        this.positionOnGrid('x', wall.from.x),
+                        this.positionOnGrid('y', wall.from.y),
+                        this.positionOnGrid('z', wall.from.z),
+                    ).subtract(center),
+                    new Vector3(
+                        this.positionOnGrid('x', wall.to.x + 1),
+                        this.positionOnGrid('y', wall.to.y + 1),
+                        this.positionOnGrid('z', wall.to.z + 1),
+                    ).subtract(center),
+                ),
+            );
         });
 
         return bricks;
     }
 
-
     toString(): string {
         let output = '';
 
-        this.iterate((val, pos) => {
-
-
-            const charConfig = CHARS.find((charConfig) => charConfig.id === val) || CHARS[0];
-            //console.log(charConfig,y,x);
-            output += charConfig.chars[pos.x % 2];
-        }, () => {
-            output += '\n';
-        }, () => {
-            output += '\n\n\n';
-        });
+        this.iterate(
+            (val, pos) => {
+                const charConfig = CHARS.find((charConfig) => charConfig.id === val) || CHARS[0];
+                //console.log(charConfig,y,x);
+                output += charConfig.chars[pos.x % 2];
+            },
+            () => {
+                output += '\n';
+            },
+            () => {
+                output += '\n\n\n';
+            },
+        );
 
         return output;
     }

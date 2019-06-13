@@ -1,20 +1,14 @@
 import Vector3 from './Vector3';
 
 export default class Grid3<T> {
-
-    constructor(private _grid: T[][][]) {
-    }
+    constructor(private _grid: T[][][]) {}
 
     get array() {
         return this._grid;
     }
 
     get length(): Vector3 {
-        return new Vector3(
-            this.lengthX,
-            this.lengthY,
-            this.lengthZ
-        );
+        return new Vector3(this.lengthX, this.lengthY, this.lengthZ);
     }
 
     get lengthY(): number {
@@ -22,11 +16,11 @@ export default class Grid3<T> {
     }
 
     get lengthX(): number {
-        return this._grid[0].length;//todo better
+        return this._grid[0].length; //todo better
     }
 
     get lengthZ(): number {
-        return this._grid[0][0].length;//todo better
+        return this._grid[0][0].length; //todo better
     }
 
     setCell(position: Vector3, value: T) {
@@ -41,9 +35,11 @@ export default class Grid3<T> {
         return grid1d[position.x];
     }*/
 
-    iterate(callback: (value: T, position: Vector3) => void,
-            rowCallback?: (y: number) => void,
-            floorCallback?: (z: number) => void) {
+    iterate(
+        callback: (value: T, position: Vector3) => void,
+        rowCallback?: (y: number) => void,
+        floorCallback?: (z: number) => void,
+    ) {
         for (let z = 0; z < this._grid.length; z++) {
             for (let y = 0; y < this._grid[z].length; y++) {
                 for (let x = 0; x < this._grid[z][y].length; x++) {
@@ -65,14 +61,17 @@ export default class Grid3<T> {
 
     toString(): string {
         let output = '';
-        this.iterate((val, pos) => {
-            output += val ? '██' : '  ';
-        }, () => {
-            output += '\n';
-        }, () => {
-            output += '\n\n\n';
-        });
+        this.iterate(
+            (val, pos) => {
+                output += val ? '██' : '  ';
+            },
+            () => {
+                output += '\n';
+            },
+            () => {
+                output += '\n\n\n';
+            },
+        );
         return output;
     }
-
 }

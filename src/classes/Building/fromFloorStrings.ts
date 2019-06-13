@@ -1,6 +1,6 @@
 import Vector2 from '../Vector2';
 import BuildingDataModel from './index';
-import {CHARS} from './config';
+import { CHARS } from './config';
 
 function createPlateString(floorString: string) {
     let deskString = '';
@@ -17,21 +17,17 @@ function createPlateString(floorString: string) {
 }
 
 function fromFroorString(floorString: string): string[][] {
-
     floorString = floorString.trim();
 
     const array: string[][] = [];
     let y = 0;
     for (let rowString of floorString.split('\n')) {
-
         array[y] = [];
         let x = 0;
 
         for (let i = 0; i < rowString.length; i += x % 2 === 0 ? 3 : 1) {
-
             const substring = rowString.substring(i, i + (x % 2 === 0 ? 1 : 3));
             const charConfig = CHARS.find((charConfig) => charConfig.chars.indexOf(substring) !== -1);
-
 
             if (typeof charConfig === 'undefined') {
                 throw new Error(`String "${substring}" has no meaning in building ASCII config."`);
@@ -46,11 +42,9 @@ function fromFroorString(floorString: string): string[][] {
     }
 
     return array;
-
 }
 
-export default function (buildingString: string[]): BuildingDataModel {
-
+export default function(buildingString: string[]): BuildingDataModel {
     const grid: string[][][] = [];
 
     buildingString.forEach((floorString, i) => {
@@ -65,8 +59,8 @@ export default function (buildingString: string[]): BuildingDataModel {
         {
             x: [3, 10],
             y: [3, 10],
-            z: [10, 0.5],//[0.5, 10],
+            z: [10, 0.5], //[0.5, 10],
         },
-        new Vector2(5, 5)
+        new Vector2(5, 5),
     );
 }
